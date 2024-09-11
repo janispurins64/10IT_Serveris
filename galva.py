@@ -7,7 +7,7 @@ import requests
 
 app = Flask(__name__)
 #-------------------- Šeit mūsu daļa
-@app.route('/',methods=['GET'])
+@app.route('/',methods=['GET','POST'])
 def root():
     return render_template("tests.html")
 
@@ -20,7 +20,7 @@ def uzruna():
     vards = request.args.get("vards")
     uzvards = request.args.get("uzvards")
     print(f"Vārds= {vards}  uzvārds= {uzvards}")
-    return  "Kātevisauc"          #render_template("katevisauc.html")
+    return  render_template("sveiciens.html",vards=vards,uzvards=uzvards)
 
 
 #----------------------------------------
